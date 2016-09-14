@@ -1,0 +1,30 @@
+{{var date=(toNumber router.params.date)}}
+
+{{#partial "_layout"
+	title=(formatDate "dd-MM-yyyy hh:mm" @date)
+	minute=minute
+}}
+
+<p class="text-xs-right">
+	Seconds left:
+	<span {{widgets (widget "countdown" time=(inc @date 60000))}}><span class="ss"></span></span>
+</p>
+
+<form on-submit="event.preventDefault(); minute.add({ date: {{@date}}, name: node[0].value }); node.reset();">
+	<div class="form-group">
+		<input class="form-control" type="text" placeholder="Name a quality">
+	</div>
+</form>
+
+
+{{#filter minute.list "date" @date}}
+	{{#if @first}}<ul class="list-group">{{/if}}
+		<li class="list-group-item">
+			{{name}}
+		</li>
+	{{#if @last}}</ul>{{/if}}
+	{{else}}
+	Name as many of your positive qualities as you can in a minute!
+{{/filter}}
+
+{{/partial}}

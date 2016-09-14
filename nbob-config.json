@@ -1,0 +1,17 @@
+{
+	"project": {
+		"name": "positive-minute",
+		"version": "0.0.1"
+	},
+	"make:js:amd": {
+		"exports": [ "app" ]
+	},
+	"make:substitute": {
+		"substitutes": {
+			"TITLE": "Positive Minute",
+			"TITLE_SHORT": "PosMin",
+			"COLOR_BG": "#3E4EB8",
+			"COLOR_THEME": "#2E3AA1"
+		}
+	}
+}

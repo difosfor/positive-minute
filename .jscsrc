@@ -1,0 +1,13 @@
+{
+	"preset": "jquery",
+	"maximumLineLength": { "value": 120, "tabSize": 4, "allowComments": true, "allowRegex": true },
+	"validateIndentation": "\t",
+	"validateQuoteMarks": { "mark": "'", "escape": true },
+	"requireMultipleVarDecl": null,
+	"requireSpacesInsideParentheses": null,
+	"requirePaddingNewLinesBeforeLineComments": null,
+	"esnext": true,
+	"excludeFiles": [
+		"**/*.min.js"
+	]
+}

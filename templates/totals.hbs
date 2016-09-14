@@ -1,0 +1,17 @@
+{{#partial "_layout"
+	title="Look at You!"
+	minute=minute
+}}
+
+{{#order minute.nameCounts "nr" desc=true}}
+	{{#if @first}}<ul class="list-group">{{/if}}
+		<li class="list-group-item">
+			<span class="tag tag-default tag-pill pull-xs-right">{{nr}}</span>
+			{{name}}
+		</li>
+	{{#if @last}}</ul>{{/if}}
+	{{else}}
+	You have not taken any minutes yet.
+{{/order}}
+
+{{/partial}}

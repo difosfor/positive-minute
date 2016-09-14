@@ -1,0 +1,12 @@
+{
+	"name": "__TITLE__",
+	"short_name": "__TITLE_SHORT__",
+	"background_color": "__COLOR_BG__",
+	"theme_color": "__COLOR_THEME__",
+	"display": "standalone",
+	"icons": [ {
+		"src": "images/icon.png",
+		"sizes": "512x512",
+		"type": "image/png"
+	} ]
+}

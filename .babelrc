@@ -1,0 +1,18 @@
+{
+	"loose": "all",
+	"whitelist": [
+		"es3.memberExpressionLiterals",
+		"es3.propertyLiterals",
+		"es6.arrowFunctions",
+		"es6.blockScoping",
+		"es6.classes",
+		"es6.destructuring",
+		"es6.parameters",
+		"es6.spread",
+		"es6.templateLiterals"
+	],
+	"modules": "ignore",
+	"ignore": [
+		"**/*.min.js"
+	]
+}
