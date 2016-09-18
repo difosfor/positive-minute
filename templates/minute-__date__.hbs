@@ -24,7 +24,10 @@
 	<div class="container-fluid" style="padding-left: 0">
 		<div class="form-group row">
 			<div class="col-xs-9">
-				<input class="form-control" type="text" placeholder="Name a quality"
+				<input
+					class="form-control"
+					type="text"
+					placeholder="Name a quality"
 					{{#if @hasTimeLeft}}autofocus{{/if}}
 				>
 			</div>
@@ -33,14 +36,23 @@
 	</div>
 </form>
 
-{{#order (filter minute.list "date" @date) "id" desc=true}}
-	{{#if @first}}<ul class="list-group">{{/if}}
-		<li class="list-group-item" view-id="{{id}}">
-			{{name}}
-		</li>
-	{{#if @last}}</ul>{{/if}}
-	{{else}}
-	Name as many of your positive qualities as you can within one minute!
-{{/order}}
+<p>
+	{{#filter minute.list "date" @date}}
+		{{#if @first}}<div class="list-group">{{/if}}
+			<input
+				view-id="{{id}}"
+				class="list-group-item form-control"
+				type="text"
+				value="{{name}}"
+				on-input="minute.change({{id}}, node.value)"
+				on-change="node.blur()"
+			>
+		{{#if @last}}</div>{{/if}}
+		{{else}}
+		<em>
+			Name as many of your positive qualities as you can within one minute!
+		</em>
+	{{/filter}}
+</p>
 
 {{/partial}}

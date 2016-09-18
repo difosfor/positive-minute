@@ -38,6 +38,12 @@ playtotv.define('MinuteController', [
 			this.publish('add', minute);
 		}
 
+		change(id, name) {
+			var minute = this.list.find(m => m.id === id);
+			minute.name = name;
+			this.publish('change', minute);
+		}
+
 		getCounts(key) {
 			return this.list.reduce((counts, minute) => {
 				var value = minute[key];
