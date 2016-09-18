@@ -1,6 +1,6 @@
 {
 	"name": "__TITLE__",
-	"short_name": "__TITLE_SHORT__",
+	"short_name": "__TITLE__",
 	"background_color": "__COLOR_BG__",
 	"theme_color": "__COLOR_THEME__",
 	"display": "standalone",

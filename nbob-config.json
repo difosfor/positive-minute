@@ -9,7 +9,6 @@
 	"make:substitute": {
 		"substitutes": {
 			"TITLE": "Positive Minute",
-			"TITLE_SHORT": "PosMin",
 			"COLOR_BG": "#3E4EB8",
 			"COLOR_THEME": "#2E3AA1"
 		}
