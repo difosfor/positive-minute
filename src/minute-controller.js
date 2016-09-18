@@ -68,7 +68,8 @@ playtotv.define('MinuteController', [
 		}
 
 		hasTimeLeft(start) {
-			return Date.now() - start < 60000;
+			// Add a 5s margin to be nice
+			return Date.now() - start < 65000;
 		}
 	};
 });

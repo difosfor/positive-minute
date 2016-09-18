@@ -7,10 +7,14 @@
 }}
 
 {{#if @hasTimeLeft}}
-<p class="text-xs-right">
-	Seconds left:
-	<span {{widgets (widget "countdown" time=(inc @date 60000))}}><span class="ss"></span></span>
-</p>
+<div {{widgets (widget "progress" from=@date to=(inc @date 60000))}}>
+	<div class="col-xs-10" style="padding: 0;">
+		<progress class="progress progress-striped progress-animated"></progress>
+	</div>
+	<div class="col-xs-2 text-xs-right" style="line-height: 1; padding: 0;">
+		<em><small class="progress-label">Done</small></em>
+	</div>
+</div>
 {{/if}}
 
 <!-- TODO: Figure out a way to get input focussing on submit from Add button working in iOS -->

@@ -1,11 +1,11 @@
 playtotv.define('app', [
 	'playtotv.mvc.App',
-	'playtotv.widget.CountdownWidget',
-	'MinuteController'
+	'MinuteController',
+	'ProgressWidget'
 ], function(
 	App,
-	CountdownWidget,
-	MinuteController
+	MinuteController,
+	ProgressWidget
 ) {
 
 	'use strict';
@@ -18,7 +18,7 @@ playtotv.define('app', [
 	var app = new App({ id: id });
 
 	app.setWidgets([
-		[ 'countdown', CountdownWidget ]
+		[ 'progress', ProgressWidget ]
 	]);
 
 	app.addControllers([
