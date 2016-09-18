@@ -7,35 +7,45 @@ playtotv.define('MinuteController', [
 	'use strict';
 
 	var ptv = playtotv;
-	var REQUIRED = ptv.REQUIRED;
+	var util = ptv.util;
 
 	return class MinuteController extends Controller {
 		constructor(context) {
 			context.store = {
 				id: 1,
-				list: []
+				list: [],
+				suggestions: []
 			};
 
 			super(context);
 		}
 
-		add(minute) {
-			var { date, name } = ptv.params(minute, {
-				date: REQUIRED,
-				name: REQUIRED
-			});
+		getDate() {
+			return parseFloat(this.app.router.params.date);
+		}
 
+		add(name) {
+			var date = this.getDate();
 			var { list } = this;
 
 			if (!name || list.find(m => m.date === date && m.name === name)) {
 				return; // no name specified or name was already added in this minute
 			}
 
-			minute.id = this.id++;
+			var minute = {
+				id: this.id++,
+				date: date,
+				name: name
+			};
 
 			list.push(minute);
 
 			this.publish('add', minute);
+
+			var input = document.querySelector('form input');
+			input.value = '';
+			input.focus();
+			this.suggest('');
 		}
 
 		change(id, name) {
@@ -70,6 +80,32 @@ playtotv.define('MinuteController', [
 		hasTimeLeft(start) {
 			// Add a 5s margin to be nice
 			return Date.now() - start < 65000;
+		}
+
+		suggest(needle) {
+			var date = this.getDate();
+			var { list } = this;
+
+			var usedNames = list.filter(m => m.date === date).map(m => m.name);
+
+			var regex = new RegExp('^' + util.escapeRegEx(needle), 'i');
+			var suggestions = list.reduce((names, minute) => {
+				var { name } = minute;
+				if (
+					names.indexOf(name) < 0 &&
+					usedNames.indexOf(name) < 0 &&
+					regex.test(name)
+				) {
+					names.push(name);
+				}
+				return names;
+			}, []);
+
+			// Pick 3 suggestions at random from all matches
+			suggestions = ptv.shuffle(suggestions);
+			suggestions.length = Math.min(3, suggestions.length);
+
+			this.set('suggestions', suggestions);
 		}
 	};
 });

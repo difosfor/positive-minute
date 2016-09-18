@@ -21,8 +21,7 @@
 <form class="form-inline"
 	{{#on "submit"}}
 		event.preventDefault();
-		minute.add({ date: {{@date}}, name: node[0].value });
-		node.reset();
+		minute.add(node[0].value);
 	{{/on}}
 >
 	<div class="container-fluid" style="padding-left: 0">
@@ -33,6 +32,8 @@
 					type="text"
 					placeholder="Name a quality"
 					{{#if @hasTimeLeft}}autofocus{{/if}}
+					on-node-added="minute.suggest('')"
+					on-input="minute.suggest(node.value)"
 				>
 			</div>
 			<button class="btn btn-primary col-xs-3" type="submit">Add</button>
@@ -41,11 +42,20 @@
 </form>
 
 <p>
-	{{#filter minute.list "date" @date}}
+	{{#each minute.suggestions}}
+		<button class="btn btn-info btn-sm" style="margin: 3px;"
+			on-click="minute.add(node.innerText)"
+		>
+			{{.}}
+		</button>
+	{{/each}}
+</p>
+
+<p>
+	{{#order (filter minute.list "date" @date) "id" desc=true}}
 		{{#if @first}}<div class="list-group">{{/if}}
-			<input
+			<input class="list-group-item form-control" style="margin: 0;"
 				view-id="{{id}}"
-				class="list-group-item form-control"
 				type="text"
 				value="{{name}}"
 				on-input="minute.change({{id}}, node.value)"
@@ -56,7 +66,7 @@
 		<em>
 			Name as many of your positive qualities as you can within one minute!
 		</em>
-	{{/filter}}
+	{{/order}}
 </p>
 
 {{/partial}}
