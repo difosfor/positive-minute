@@ -3,15 +3,17 @@
 	minute=minute
 }}
 
-{{#each minute.dateCounts}}
-	{{#if @first}}<div class="list-group">{{/if}}
-		<a href="#minute-{{date}}" class="list-group-item">
-			<span class="tag tag-default tag-pill pull-xs-right">{{nr}}</span>
-			{{formatDate "dd-MM-yyyy hh:mm" (toNumber date)}}
-		</a>
-	{{#if @last}}</div>{{/if}}
-	{{else}}
-	You have not taken any minutes yet.
-{{/each}}
+<p>
+	{{#each minute.dateCounts}}
+		{{#if @first}}<div class="list-group">{{/if}}
+			<a href="#minute-{{date}}" class="list-group-item">
+				<span class="tag tag-default tag-pill pull-xs-right">{{nr}}</span>
+				{{formatDate "dd-MM-yyyy hh:mm" (toNumber date)}}
+			</a>
+		{{#if @last}}</div>{{/if}}
+		{{else}}
+		You have not taken any minutes yet.
+	{{/each}}
+</p>
 
 {{/partial}}
