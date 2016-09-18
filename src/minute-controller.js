@@ -60,5 +60,9 @@ playtotv.define('MinuteController', [
 		get nameCounts() {
 			return this.getCounts('name');
 		}
+
+		hasTimeLeft(start) {
+			return Date.now() - start < 60000;
+		}
 	};
 });
