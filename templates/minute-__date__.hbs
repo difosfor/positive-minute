@@ -54,15 +54,15 @@
 <p>
 	{{#order (filter minute.list "date" @date) "id" desc=true}}
 		{{#if @first}}<div class="list-group">{{/if}}
-			<input class="list-group-item form-control" style="margin: 0;"
-				view-id="{{id}}"
-				type="text"
-				value="{{name}}"
-				on-input="minute.change({{id}}, node.value)"
-				on-change="node.blur()"
-			>
+		<input class="list-group-item form-control" style="margin: 0;"
+			view-id="{{id}}"
+			type="text"
+			value="{{name}}"
+			on-input="minute.change({{id}}, node.value)"
+			on-change="node.blur()"
+		>
 		{{#if @last}}</div>{{/if}}
-		{{else}}
+	{{else}}
 		<em>
 			Name as many of your positive qualities as you can within one minute!
 		</em>
