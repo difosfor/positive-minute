@@ -1,0 +1,125 @@
+{
+	"made by": {
+		"files": [
+			"templates/l10n/credits.hbs"
+		],
+		"localization": "gemaakt door"
+	},
+	"under": {
+		"files": [
+			"templates/l10n/credits.hbs"
+		],
+		"localization": "onder"
+	},
+	"license": {
+		"files": [
+			"templates/l10n/credits.hbs"
+		],
+		"localization": "licentie"
+	},
+	"from": {
+		"files": [
+			"templates/l10n/credits.hbs"
+		],
+		"localization": "van"
+	},
+	"History": {
+		"files": [
+			"templates/l10n/history.hbs",
+			"templates/l10n/index.hbs"
+		],
+		"localization": "Geschiedenis"
+	},
+	"You have not taken any minutes yet.": {
+		"files": [
+			"templates/l10n/history.hbs",
+			"templates/l10n/totals.hbs"
+		],
+		"localization": "Je hebt nog geen minuut genomen."
+	},
+	"Remind yourself of your positive qualities from time to time and find out what a wonderful person you are!": {
+		"files": [
+			"templates/l10n/index.hbs"
+		],
+		"localization": "Herinner jezelf aan je positieve eigenschappen om te zien wat een fantastische persoon je bent!"
+	},
+	"Take a Minute": {
+		"files": [
+			"templates/l10n/index.hbs"
+		],
+		"localization": "Neem een minuut"
+	},
+	"Look at You!": {
+		"files": [
+			"templates/l10n/index.hbs",
+			"templates/l10n/totals.hbs"
+		],
+		"localization": "Kijk eens aan!"
+	},
+	"Credits": {
+		"files": [
+			"templates/l10n/index.hbs"
+		],
+		"localization": "Credits"
+	},
+	"Tip: In iOS tap": {
+		"files": [
+			"templates/l10n/index.hbs"
+		],
+		"localization": "Tip: Klik in iOS op"
+	},
+	"or on Android tap": {
+		"files": [
+			"templates/l10n/index.hbs"
+		],
+		"localization": "of in Android op"
+	},
+	"and then tap \"Add to Home Screen\"": {
+		"files": [
+			"templates/l10n/index.hbs"
+		],
+		"localization": "en klik dan op \"Zet in beginscherm\" o.i.d."
+	},
+	"Done": {
+		"files": [
+			"templates/l10n/minute-__date__.hbs"
+		],
+		"localization": "Klaar"
+	},
+	"Name a quality": {
+		"files": [
+			"templates/l10n/minute-__date__.hbs"
+		],
+		"localization": "Positieve eigenschap"
+	},
+	"Add": {
+		"files": [
+			"templates/l10n/minute-__date__.hbs"
+		],
+		"localization": "Erbij"
+	},
+	"Name as many of your positive qualities as you can within one minute!": {
+		"files": [
+			"templates/l10n/minute-__date__.hbs"
+		],
+		"localization": "Noem zoveel mogelijk positieve eigenschappen in een minuut"
+	},
+	"Route not found": {
+		"files": [
+			"templates/l10n/route-not-found.hbs"
+		],
+		"localization": "Route niet gevonden"
+	},
+	"Sorry, no route was found for path:": {
+		"files": [
+			"templates/l10n/route-not-found.hbs"
+		],
+		"localization": "Sorry, er is geen route gevonden voor het pad:"
+	},
+	"Click here to start over": {
+		"files": [
+			"templates/l10n/route-not-found.hbs"
+		],
+		"localization": "Klik hier om overnieuw te beginnen"
+	}
+}

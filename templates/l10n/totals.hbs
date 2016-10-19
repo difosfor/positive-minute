@@ -1,5 +1,5 @@
 {{#partial "_layout"
-	title="Look at You!"
+	title="_('Look at You!')"
 	minute=minute
 }}
 
@@ -12,7 +12,7 @@
 			</li>
 		{{#if @last}}</ul>{{/if}}
 		{{else}}
-		You have not taken any minutes yet.
+		_('You have not taken any minutes yet.')
 	{{/order}}
 </p>
 

@@ -9,6 +9,7 @@ playtotv.define('app', [
 	MinuteController,
 	ProgressWidget
 ) {
+	/*global Handlebars*/
 
 	'use strict';
 
@@ -17,7 +18,45 @@ playtotv.define('app', [
 	// Extra logging, e.g: if you want to see View changes in detail
 	playtotv.Logger.get(id).level = 'SPAM';
 
-	var app = new App({ id: id });
+	// TODO: Add runtime l10n support to lib (instead of build time)
+	// e.g: app.l10n('foo') and {{l10n "foo"}}
+	// Will require difficult support by nbob l10n update processor..
+	var allTemplates = Handlebars.templates;
+	var allPartials = Handlebars.partials;
+
+	function selectLang(templates, lang) {
+		var selected = {};
+		var prefix = lang + '/';
+		playtotv.each(templates, (tmpl, name) => {
+			if (name.startsWith(prefix)) {
+				selected[name.substr(prefix.length)] = tmpl;
+			}
+		});
+		return selected;
+	}
+
+	function setLang(lang) {
+		Handlebars.templates = selectLang(allTemplates, lang);
+		Handlebars.partials = selectLang(allPartials, lang);
+	}
+
+	var defLang = 'en-us';
+	setLang(defLang);
+
+	var app = new App({
+		id: id,
+		store: {
+			lang: defLang
+		}
+	});
+
+	app.ready.then(() => app.publish('lang', app.lang));
+
+	app.subscribe('lang', (lang) => {
+		setLang(lang);
+		app.templates = Handlebars.templates;
+		// app.view.update();
+	});
 
 	app.setWidgets([
 		[ 'progress', ProgressWidget ]
@@ -29,6 +68,7 @@ playtotv.define('app', [
 
 	var analytics = new GoogleAnalytics({
 		id: 'UA-926370-3',
+		requires: [ 'displayfeatures' ],
 		skipView: true
 	});
 

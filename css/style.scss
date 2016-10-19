@@ -13,8 +13,18 @@ header {
 	img {
 		height: 20px;
 	}
+
+	.dropdown-toggle {
+		background-color: #9db;
+		border-color: #8ca;
+		padding: 2px 6px 3px 6px;
+	}
 }
 
 .left {
 	float: left;
+}
+
+.right {
+	float: right;
 }

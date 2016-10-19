@@ -12,7 +12,7 @@
 		<progress class="progress progress-striped progress-animated"></progress>
 	</div>
 	<div class="col-xs-2 text-xs-right" style="line-height: 1; padding: 0;">
-		<em><small class="progress-label">Done</small></em>
+		<em><small class="progress-label">_('Done')</small></em>
 	</div>
 </div>
 {{/if}}
@@ -30,13 +30,13 @@
 				<input
 					class="form-control"
 					type="text"
-					placeholder="Name a quality"
+					placeholder="_('Name a quality')"
 					{{#if @hasTimeLeft}}autofocus{{/if}}
 					on-node-added="minute.suggest('')"
 					on-input="minute.suggest(node.value)"
 				>
 			</div>
-			<button class="btn btn-primary col-xs-3" type="submit">Add</button>
+			<button class="btn btn-primary col-xs-3" type="submit">_('Add')</button>
 		</div>
 	</div>
 </form>
@@ -64,7 +64,7 @@
 		{{#if @last}}</div>{{/if}}
 	{{else}}
 		<em>
-			Name as many of your positive qualities as you can within one minute!
+			_('Name as many of your positive qualities as you can within one minute!')
 		</em>
 	{{/order}}
 </p>

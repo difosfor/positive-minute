@@ -23,7 +23,7 @@ playtotv.define('ProgressWidget', [
 			var progress = node.querySelector('progress');
 			var label = node.querySelector('.progress-label');
 
-			ptv.extend(this, options, {
+			Object.assign(this, options, {
 				progress: progress,
 				label: label
 			});
